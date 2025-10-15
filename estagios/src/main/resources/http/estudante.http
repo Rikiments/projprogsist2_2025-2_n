@@ -1,0 +1,33 @@
+### GET - Buscar todos os estudantes 
+GET http://localhost:8080/mackenzie/estudantes
+Accept: application/json
+
+### GET - Buscar estudante por ID 
+GET http://localhost:8080/mackenzie/estudantes/1
+Accept: application/json
+
+### POST - Criar novo estudante
+POST http://localhost:8080/mackenzie/estudantes
+Content-Type: application/json
+
+{
+  "nome": "Maria Fernanda",
+  "email": "maria.fernanda@email.com",
+  "nascimento": "2002-09-25",
+  "anoIngresso": 2021
+}
+
+### PUT - Atualizar estudante existente
+PUT http://localhost:8080/mackenzie/estudantes/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nome": "Maria Fernanda Silva",
+  "email": "maria.silva@email.com",
+  "nascimento": "2002-09-25",
+  "anoIngresso": 2021
+}
+
+### DELETE - Remover estudante por ID
+DELETE http://localhost:8080/mackenzie/estudantes/1
