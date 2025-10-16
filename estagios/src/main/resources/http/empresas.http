@@ -1,0 +1,39 @@
+###GET - Listar todas as empresas
+GET http://localhost:8080/empresas
+Content-Type: application/json
+
+###
+
+###GET - Buscar empresa por ID
+GET http://localhost:8080/empresas/1
+Content-Type: application/json
+
+###
+
+###POST - Adicionar nova empresa
+POST http://localhost:8080/empresas
+Content-Type: application/json
+
+{
+  "nome": "Zeta Consultoria",
+  "cnpj": "44.555.666/0001-77",
+  "emailContato": "contato@zetaconsultoria.com"
+}
+
+###
+
+###PUT - Atualizar empresa existente
+PUT http://localhost:8080/empresas/2
+Content-Type: application/json
+
+{
+  "nome": "Beta Comércio e Serviços",
+  "cnpj": "98.765.432/0001-10",
+  "emailContato": "beta@comercioeservicos.com"
+}
+
+###
+
+###DELETE - Remover empresa
+DELETE http://localhost:8080/empresas/3
+Content-Type: application/json

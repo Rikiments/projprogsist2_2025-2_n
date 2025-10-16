@@ -34,11 +34,13 @@ public class EstudanteController {
         estudantes.add(new Estudante(10L, "Jose Martinez", "josemartinez@email.com", LocalDate.parse("2000-08-27"), 2018));
     }
 
+    //GET - Listar todas os estudantes
     @GetMapping("/mackenzie/estudantes")
     public List<Estudante> getEstudantes() {
         return estudantes;
     }
 
+    //GET - Listar estudante por id
     @GetMapping("/mackenzie/estudantes/{id}")
     public Estudante getEstudante(@PathVariable Long id) {
         for (Estudante e : estudantes) {
@@ -49,6 +51,7 @@ public class EstudanteController {
         return null;
     }
 
+    //POST - Adicionar novo estudante
     @PostMapping("/mackenzie/estudantes")
     public Estudante create(@RequestBody Estudante e) {
         long maiorId = 0;
@@ -62,7 +65,8 @@ public class EstudanteController {
         return e;
     }
 
-     @PutMapping("/mackenzie/estudantes/{id}")
+    //PUT - Atualizar estudante existente
+    @PutMapping("/mackenzie/estudantes/{id}")
     public Estudante update(@PathVariable long id, @RequestBody Estudante novo) {
         for (Estudante e : estudantes) {
             if (e.getId() == id) {
@@ -76,6 +80,7 @@ public class EstudanteController {
         return null;
     }
 
+    //Delete - Remover estudante por id  
     @DeleteMapping("/mackenzie/estudantes/{id}")
     public String delete(@PathVariable long id) {
         for (Estudante e : estudantes) {

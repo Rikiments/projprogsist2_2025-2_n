@@ -1,0 +1,43 @@
+###GET - Listar todas as vagas
+GET http://localhost:8080/vagas
+Content-Type: application/json
+
+###
+
+###GET - Buscar vaga por ID
+GET http://localhost:8080/vagas/1
+Content-Type: application/json
+
+###
+
+###POST - Adicionar nova vaga
+POST http://localhost:8080/vagas
+Content-Type: application/json
+
+{
+  "titulo": "Desenvolvedor Mobile",
+  "descricao": "Criação e manutenção de aplicativos Android e iOS.",
+  "publicacao": "2025-10-15",
+  "ativo": true,
+  "idEmpresa": 1
+}
+
+###
+
+###PUT - Atualizar vaga existente
+PUT http://localhost:8080/vagas/2
+Content-Type: application/json
+
+{
+  "titulo": "Analista de Suporte Pleno",
+  "descricao": "Atendimento técnico a clientes e resolução de incidentes.",
+  "publicacao": "2025-09-27",
+  "ativo": true,
+  "idEmpresa": 2
+}
+
+###
+
+###DELETE - Remover vaga
+DELETE http://localhost:8080/vagas/3
+Content-Type: application/json
