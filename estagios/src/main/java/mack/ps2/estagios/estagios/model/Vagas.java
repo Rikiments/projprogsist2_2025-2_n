@@ -17,6 +17,9 @@ public class Vagas {
     private boolean ativo;
     private Long idEmpresa;
 
+    public Vagas(){
+    }
+
 
     public Vagas(Long id, String titulo, String descricao, LocalDate publicacao, boolean ativo, Long idEmpresa) {
         this.id = id;

@@ -15,6 +15,9 @@ public class Empresa {
     private String emailContato;
 
 
+    public Empresa(){      
+    }
+
     public Empresa(Long id, String nome, String cnpj, String emailContato) {
         this.id = id;
         this.nome = nome;

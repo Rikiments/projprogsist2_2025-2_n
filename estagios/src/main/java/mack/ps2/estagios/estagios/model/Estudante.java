@@ -16,7 +16,9 @@ public class Estudante {
     private String email;
     private LocalDate nascimento;
     private int anoIngresso;
-
+    
+    public Estudante(){
+    }
 
     public Estudante(Long id, String nome, String email, LocalDate nascimento, int anoIngresso) {
         this.id = id;
@@ -26,8 +28,6 @@ public class Estudante {
         this.anoIngresso = anoIngresso;
     }
 
-    public Estudante(){
-    }
 
     public Long getId() {
         return id;
