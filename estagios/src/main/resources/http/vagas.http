@@ -1,36 +1,26 @@
-###GET - Listar todas as vagas
+### Listar vagas
 GET http://localhost:8080/vagas
-Content-Type: application/json
 
-###
-
-###GET - Buscar vaga por ID
-GET http://localhost:8080/vagas/1
-Content-Type: application/json
-
-###
-
-###POST - Adicionar nova vaga
+### Criar vagas
 POST http://localhost:8080/vagas
 Content-Type: application/json
 
 {
-  "titulo": "Desenvolvedor Mobile",
-  "descricao": "Criação e manutenção de aplicativos Android e iOS.",
-  "publicacao": "2025-10-15",
+  "titulo": "Desenvolvedor Java",
+  "descricao": "Atuação em projetos backend com Java e Spring. Experiência desejada em APIs REST.",
+  "publicacao": "2025-10-01",
   "ativo": true,
   "idEmpresa": 1
 }
 
 ###
 
-###PUT - Atualizar vaga existente
-PUT http://localhost:8080/vagas/2
+POST http://localhost:8080/vagas
 Content-Type: application/json
 
 {
-  "titulo": "Analista de Suporte Pleno",
-  "descricao": "Atendimento técnico a clientes e resolução de incidentes.",
+  "titulo": "Analista de Suporte Técnico",
+  "descricao": "Suporte a clientes, resolução de chamados e participação em treinamentos internos.",
   "publicacao": "2025-09-27",
   "ativo": true,
   "idEmpresa": 2
@@ -38,6 +28,65 @@ Content-Type: application/json
 
 ###
 
-###DELETE - Remover vaga
-DELETE http://localhost:8080/vagas/3
+POST http://localhost:8080/vagas
 Content-Type: application/json
+
+{
+  "titulo": "Engenheiro de Software",
+  "descricao": "Desenvolvimento de soluções para sistemas corporativos, integração e automação.",
+  "publicacao": "2025-10-03",
+  "ativo": false,
+  "idEmpresa": 3
+}
+
+###
+
+POST http://localhost:8080/vagas
+Content-Type: application/json
+
+{
+  "titulo": "Analista de Dados",
+  "descricao": "Manipulação e análise de grandes volumes de dados. Conhecimentos de SQL e Python.",
+  "publicacao": "2025-09-18",
+  "ativo": true,
+  "idEmpresa": 4
+}
+
+###
+
+POST http://localhost:8080/vagas
+Content-Type: application/json
+
+{
+  "titulo": "Designer Digital",
+  "descricao": "Criação de materiais gráficos, UX/UI e participação em campanhas de marketing.",
+  "publicacao": "2025-09-30",
+  "ativo": false,
+  "idEmpresa": 5
+}
+
+###
+
+POST http://localhost:8080/vagas
+Content-Type: application/json
+
+{
+  "titulo": "Consultor de Projetos",
+  "descricao": "Elaboração e acompanhamento de projetos empresariais e treinamentos.",
+  "publicacao": "2025-10-06",
+  "ativo": true,
+  "idEmpresa": 1
+}
+
+###
+
+POST http://localhost:8080/vagas
+Content-Type: application/json
+
+{
+  "titulo": "Programador Full Stack",
+  "descricao": "Desenvolvimento de aplicações web frontend e backend com foco em automação.",
+  "publicacao": "2025-10-04",
+  "ativo": true,
+  "idEmpresa": 2
+}

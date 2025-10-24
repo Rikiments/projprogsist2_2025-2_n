@@ -1,39 +1,60 @@
-###GET - Listar todas as empresas
+### Listar empresas
 GET http://localhost:8080/empresas
-Content-Type: application/json
 
-###
+### Deletar empresa por id
+DELETE http://localhost:8080/empresas/3
 
-###GET - Buscar empresa por ID
-GET http://localhost:8080/empresas/1
-Content-Type: application/json
 
-###
-
-###POST - Adicionar nova empresa
+### Criar empresas
 POST http://localhost:8080/empresas
 Content-Type: application/json
 
 {
-  "nome": "Zeta Consultoria",
-  "cnpj": "44.555.666/0001-77",
-  "emailContato": "contato@zetaconsultoria.com"
+  "nome": "Empresa Alfa LTDA",
+  "cnpj": "12.345.678/0001-90",
+  "emailContato": "contato@empresa-alfa.com"
 }
 
 ###
 
-###PUT - Atualizar empresa existente
-PUT http://localhost:8080/empresas/2
+POST http://localhost:8080/empresas
 Content-Type: application/json
 
 {
-  "nome": "Beta Comércio e Serviços",
+  "nome": "Beta Comércio ME",
   "cnpj": "98.765.432/0001-10",
-  "emailContato": "beta@comercioeservicos.com"
+  "emailContato": "beta@comercio.com"
 }
 
 ###
 
-###DELETE - Remover empresa
-DELETE http://localhost:8080/empresas/3
+POST http://localhost:8080/empresas
 Content-Type: application/json
+
+{
+  "nome": "Gamma Serviços S.A.",
+  "cnpj": "11.222.333/0001-44",
+  "emailContato": "servicos@gamma.com"
+}
+
+###
+
+POST http://localhost:8080/empresas
+Content-Type: application/json
+
+{
+  "nome": "Delta Engenharia",
+  "cnpj": "22.333.444/0001-55",
+  "emailContato": "contato@deltaeng.com"
+}
+
+###
+
+POST http://localhost:8080/empresas
+Content-Type: application/json
+
+{
+  "nome": "Epsilon Digital",
+  "cnpj": "33.444.555/0001-66",
+  "emailContato": "email@epsilondigital.com"
+}

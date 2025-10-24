@@ -1,33 +1,121 @@
-### GET - Buscar todos os estudantes 
-GET http://localhost:8080/mackenzie/estudantes
-Accept: application/json
+### Listar estudantes
+GET http://localhost:8080/estudantes
 
-### GET - Buscar estudante por ID 
-GET http://localhost:8080/mackenzie/estudantes/1
-Accept: application/json
-
-### POST - Criar novo estudante
-POST http://localhost:8080/mackenzie/estudantes
+### Criar estudantes
+POST http://localhost:8080/estudantes
 Content-Type: application/json
 
 {
-  "nome": "Maria Fernanda",
-  "email": "maria.fernanda@email.com",
-  "nascimento": "2002-09-25",
-  "anoIngresso": 2021
+  "nome": "Ana Paula Souza",
+  "email": "ana.souza@email.com",
+  "nascimento": "2002-03-15",
+  "anoIngresso": 2020
 }
 
-### PUT - Atualizar estudante existente
-PUT http://localhost:8080/mackenzie/estudantes/1
+###
+
+POST http://localhost:8080/estudantes
 Content-Type: application/json
 
 {
-  "id": 1,
-  "nome": "Maria Fernanda Silva",
-  "email": "maria.silva@email.com",
-  "nascimento": "2002-09-25",
+  "nome": "Carlos Henrique Lima",
+  "email": "carlos.lima@email.com",
+  "nascimento": "2001-10-22",
+  "anoIngresso": 2019
+}
+
+###
+
+POST http://localhost:8080/estudantes
+Content-Type: application/json
+
+{
+  "nome": "Fernanda Oliveira",
+  "email": "fernanda.oliveira@email.com",
+  "nascimento": "2003-07-05",
   "anoIngresso": 2021
 }
 
-### DELETE - Remover estudante por ID
-DELETE http://localhost:8080/mackenzie/estudantes/1
+###
+
+POST http://localhost:8080/estudantes
+Content-Type: application/json
+
+{
+  "nome": "Lucas Pereira",
+  "email": "lucas.pereira@email.com",
+  "nascimento": "2002-04-11",
+  "anoIngresso": 2020
+}
+
+###
+
+POST http://localhost:8080/estudantes
+Content-Type: application/json
+
+{
+  "nome": "Gabriela Martins",
+  "email": "gabriela.martins@email.com",
+  "nascimento": "2001-12-25",
+  "anoIngresso": 2019
+}
+
+###
+
+POST http://localhost:8080/estudantes
+Content-Type: application/json
+
+{
+  "nome": "Rafael Costa",
+  "email": "rafael.costa@email.com",
+  "nascimento": "2000-09-13",
+  "anoIngresso": 2018
+}
+
+###
+
+POST http://localhost:8080/estudantes
+Content-Type: application/json
+
+{
+  "nome": "Juliana Silva",
+  "email": "juliana.silva@email.com",
+  "nascimento": "2002-06-18",
+  "anoIngresso": 2020
+}
+
+###
+
+POST http://localhost:8080/estudantes
+Content-Type: application/json
+
+{
+  "nome": "Marcos Vinícius",
+  "email": "marcos.vinicius@email.com",
+  "nascimento": "2003-01-30",
+  "anoIngresso": 2021
+}
+
+###
+
+POST http://localhost:8080/estudantes
+Content-Type: application/json
+
+{
+  "nome": "Camila Azevedo",
+  "email": "camila.azevedo@email.com",
+  "nascimento": "2001-11-08",
+  "anoIngresso": 2019
+}
+
+###
+
+POST http://localhost:8080/estudantes
+Content-Type: application/json
+
+{
+  "nome": "Felipe Cardoso",
+  "email": "felipe.cardoso@email.com",
+  "nascimento": "2000-08-27",
+  "anoIngresso": 2018
+}
