@@ -1,28 +1,40 @@
 package mack.ps2.estagios.estagios.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+
+    private String nomeFantasia; 
     private String cnpj;
     private String emailContato;
+    private String endereco; 
+    private String descricao; 
 
+    @OneToMany(mappedBy = "empresa")
+    @JsonIgnore
+    private List<Vagas> vagas;
 
-    public Empresa(){      
+    public Empresa() {
     }
 
-    public Empresa(Long id, String nome, String cnpj, String emailContato) {
+    public Empresa(Long id, String nomeFantasia, String cnpj, String emailContato, String endereco, String descricao) {
         this.id = id;
-        this.nome = nome;
+        this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.emailContato = emailContato;
+        this.endereco = endereco;
+        this.descricao = descricao;
     }
 
     public Long getId() {
@@ -33,12 +45,12 @@ public class Empresa {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeFantasia() {
+        return nomeFantasia;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeFantasia(String nomeFantasia) {
+        this.nomeFantasia = nomeFantasia;
     }
 
     public String getCnpj() {
@@ -57,4 +69,27 @@ public class Empresa {
         this.emailContato = emailContato;
     }
 
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public List<Vagas> getVagas() {
+        return vagas;
+    }
+
+    public void setVagas(List<Vagas> vagas) {
+        this.vagas = vagas;
+    }
 }
