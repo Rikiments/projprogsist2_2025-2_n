@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/vagas")
+@CrossOrigin(origins = "*")
 public class VagasController {
 
     @Autowired

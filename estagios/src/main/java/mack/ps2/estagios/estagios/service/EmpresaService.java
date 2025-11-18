@@ -5,6 +5,9 @@ import mack.ps2.estagios.estagios.repository.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
+
 import java.util.List;
 
 @Service
@@ -17,15 +20,18 @@ public class EmpresaService {
         return empresaRepository.findAll();
     }
 
-    public Empresa buscarPorId(Long id) {
+ 
+    @Nullable
+    public Empresa buscarPorId(@NonNull Long id) {
         return empresaRepository.findById(id).orElse(null);
     }
 
-    public Empresa salvar(Empresa empresa) {
+    public Empresa salvar(@NonNull Empresa empresa) {
         return empresaRepository.save(empresa);
     }
 
-    public Empresa atualizar(Long id, Empresa empresaAtualizada) {
+    @Nullable
+    public Empresa atualizar(@NonNull Long id, @NonNull Empresa empresaAtualizada) {
         if (empresaRepository.existsById(id)) {
             empresaAtualizada.setId(id);
             return empresaRepository.save(empresaAtualizada);
@@ -33,7 +39,7 @@ public class EmpresaService {
         return null;
     }
 
-    public boolean deletar(Long id) {
+    public boolean deletar(@NonNull Long id) {
         if (empresaRepository.existsById(id)) {
             empresaRepository.deleteById(id);
             return true;

@@ -5,6 +5,9 @@ import mack.ps2.estagios.estagios.repository.VagaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
+
 import java.util.List;
 
 @Service
@@ -17,15 +20,17 @@ public class VagasService {
         return vagaRepository.findAll();
     }
 
-    public Vagas buscarPorId(Long id) {
+    @Nullable
+    public Vagas buscarPorId(@NonNull Long id) {
         return vagaRepository.findById(id).orElse(null);
     }
 
-    public Vagas salvar(Vagas vaga) {
+    public Vagas salvar(@NonNull Vagas vaga) {
         return vagaRepository.save(vaga);
     }
 
-    public Vagas atualizar(Long id, Vagas vagaAtualizada) {
+    @Nullable
+    public Vagas atualizar(@NonNull Long id, @NonNull Vagas vagaAtualizada) {
         if (vagaRepository.existsById(id)) {
             vagaAtualizada.setId(id);
             return vagaRepository.save(vagaAtualizada);
@@ -33,7 +38,7 @@ public class VagasService {
         return null;
     }
 
-    public boolean deletar(Long id) {
+    public boolean deletar(@NonNull Long id) {
         if (vagaRepository.existsById(id)) {
             vagaRepository.deleteById(id);
             return true;

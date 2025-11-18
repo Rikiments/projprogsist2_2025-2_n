@@ -5,6 +5,9 @@ import mack.ps2.estagios.estagios.repository.EstudanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
+
 import java.util.List;
 
 @Service
@@ -17,15 +20,17 @@ public class EstudanteService {
         return estudanteRepository.findAll();
     }
 
-    public Estudante buscarPorId(Long id) {
+    @Nullable
+    public Estudante buscarPorId(@NonNull Long id) {
         return estudanteRepository.findById(id).orElse(null);
     }
 
-    public Estudante salvar(Estudante estudante) {
+    public Estudante salvar(@NonNull Estudante estudante) {
         return estudanteRepository.save(estudante);
     }
 
-    public Estudante atualizar(Long id, Estudante estudanteAtualizado) {
+    @Nullable
+    public Estudante atualizar(@NonNull Long id, @NonNull Estudante estudanteAtualizado) {
         if (estudanteRepository.existsById(id)) {
             estudanteAtualizado.setId(id);
             return estudanteRepository.save(estudanteAtualizado);
@@ -33,7 +38,7 @@ public class EstudanteService {
         return null;
     }
 
-    public boolean deletar(Long id) {
+    public boolean deletar(@NonNull Long id) {
         if (estudanteRepository.existsById(id)) {
             estudanteRepository.deleteById(id);
             return true;
