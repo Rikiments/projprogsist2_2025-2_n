@@ -1,9 +1,8 @@
 package mack.ps2.estagios.estagios.controller;
 
 import mack.ps2.estagios.estagios.model.Vagas;
-import mack.ps2.estagios.estagios.repository.VagasRepo;
+import mack.ps2.estagios.estagios.service.VagasService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,47 +12,30 @@ import java.util.List;
 public class VagasController {
 
     @Autowired
-    private VagasRepo vagaRepo;
+    private VagasService vagasService;
 
-    // 🔹 GET - Listar todas
     @GetMapping
-    public List<Vagas> listarVagas() {
-        return vagaRepo.findAll();
+    public List<Vagas> listar() {
+        return vagasService.listarTodas();
     }
 
-    // 🔹 GET - Buscar por ID
     @GetMapping("/{id}")
-    public ResponseEntity<Vagas> buscarPorId(@PathVariable Long id) {
-        return vagaRepo.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public Vagas buscar(@PathVariable Long id) {
+        return vagasService.buscarPorId(id);
     }
 
-    // 🔹 POST - Adicionar
     @PostMapping
-    public Vagas adicionar(@RequestBody Vagas novaVaga) {
-        return vagaRepo.save(novaVaga);
+    public Vagas criar(@RequestBody Vagas vaga) {
+        return vagasService.salvar(vaga);
     }
 
-    // 🔹 PUT - Atualizar
     @PutMapping("/{id}")
-    public ResponseEntity<Vagas> atualizar(@PathVariable Long id, @RequestBody Vagas vagaAtualizada) {
-        return vagaRepo.findById(id)
-                .map(vaga -> {
-                    vagaAtualizada.setId(id);
-                    vagaRepo.save(vagaAtualizada);
-                    return ResponseEntity.ok(vagaAtualizada);
-                })
-                .orElse(ResponseEntity.notFound().build());
+    public Vagas atualizar(@PathVariable Long id, @RequestBody Vagas vaga) {
+        return vagasService.atualizar(id, vaga);
     }
 
-    // 🔹 DELETE - Remover
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletar(@PathVariable Long id) {
-        if (vagaRepo.existsById(id)) {
-            vagaRepo.deleteById(id);
-            return ResponseEntity.ok("Vaga removida com sucesso.");
-        }
-        return ResponseEntity.notFound().build();
+    public String deletar(@PathVariable Long id) {
+        return vagasService.deletar(id) ? "Vaga removida." : "Vaga não encontrada.";
     }
 }

@@ -1,9 +1,8 @@
 package mack.ps2.estagios.estagios.controller;
 
 import mack.ps2.estagios.estagios.model.Estudante;
-import mack.ps2.estagios.estagios.repository.EstudanteRepo;
+import mack.ps2.estagios.estagios.service.EstudanteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,47 +12,30 @@ import java.util.List;
 public class EstudanteController {
 
     @Autowired
-    private EstudanteRepo estudanteRepo;
+    private EstudanteService estudanteService;
 
-    // 🔹 GET - Listar todos
     @GetMapping
-    public List<Estudante> listarEstudantes() {
-        return estudanteRepo.findAll();
+    public List<Estudante> listar() {
+        return estudanteService.listarTodos();
     }
 
-    // 🔹 GET - Buscar por ID
     @GetMapping("/{id}")
-    public ResponseEntity<Estudante> buscarPorId(@PathVariable Long id) {
-        return estudanteRepo.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public Estudante buscar(@PathVariable Long id) {
+        return estudanteService.buscarPorId(id);
     }
 
-    // 🔹 POST - Adicionar
     @PostMapping
-    public Estudante adicionar(@RequestBody Estudante novoEstudante) {
-        return estudanteRepo.save(novoEstudante);
+    public Estudante criar(@RequestBody Estudante estudante) {
+        return estudanteService.salvar(estudante);
     }
 
-    // 🔹 PUT - Atualizar
     @PutMapping("/{id}")
-    public ResponseEntity<Estudante> atualizar(@PathVariable Long id, @RequestBody Estudante estudanteAtualizado) {
-        return estudanteRepo.findById(id)
-                .map(estudante -> {
-                    estudanteAtualizado.setId(id);
-                    estudanteRepo.save(estudanteAtualizado);
-                    return ResponseEntity.ok(estudanteAtualizado);
-                })
-                .orElse(ResponseEntity.notFound().build());
+    public Estudante atualizar(@PathVariable Long id, @RequestBody Estudante estudante) {
+        return estudanteService.atualizar(id, estudante);
     }
 
-    // 🔹 DELETE - Remover
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletar(@PathVariable Long id) {
-        if (estudanteRepo.existsById(id)) {
-            estudanteRepo.deleteById(id);
-            return ResponseEntity.ok("Estudante removido com sucesso.");
-        }
-        return ResponseEntity.notFound().build();
+    public String deletar(@PathVariable Long id) {
+        return estudanteService.deletar(id) ? "Estudante removido." : "Estudante não encontrado.";
     }
 }
